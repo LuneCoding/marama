@@ -13,7 +13,7 @@ class EditorThread extends Runnable {
     while (!msg.equals("quit") && !msg.equals("stop")) {
       Thread.sleep(10)
       if (msg == null || msg.isEmpty) {
-        msg = requests.take()
+        msg = requests.poll()
       }
 
       // Echo and print received message for clarification.
