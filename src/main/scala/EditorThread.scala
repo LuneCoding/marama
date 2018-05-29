@@ -2,11 +2,11 @@ package editor
 
 import java.util.concurrent.{ArrayBlockingQueue, BlockingQueue}
 
-class EditorThread extends Runnable {
+class EditorThread extends Thread {
   var requests : BlockingQueue[String] = new ArrayBlockingQueue[String](5)
   var answers : BlockingQueue[String] = new ArrayBlockingQueue[String](5)
 
-  def run: Unit = {
+  override def run(): Unit = {
     println("Editor: Thread started!")
     var msg : String = ""
 
@@ -18,7 +18,7 @@ class EditorThread extends Runnable {
 
       // Echo and print received message for clarification.
       if (msg != null) {
-        println("Editor: Received request - {0}", msg)
+        println("Editor: Received request - $msg")
         answers.add(msg)
       }
 
