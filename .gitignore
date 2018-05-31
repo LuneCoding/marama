@@ -3,6 +3,9 @@ target
 *.class
 src/main/resources
 
+# Latex
+auxil/
+
 # intellij
 *.iml
 *.ipr
